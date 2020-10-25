@@ -18,13 +18,36 @@ type Tasks = Array<Task>;
 const App = ({ tasksList }: { tasksList: Tasks }): JSX.Element => {
   const [tasks, setTasks] = useState<Tasks>(tasksList);
 
-  function deleteTask(id: string) {
+  const deleteTask = (id: string) => {
     const remainingTasks = tasks.filter((task) => id !== task.id);
 
     setTasks(remainingTasks);
-  }
+  };
 
-  function toggleTaskCompleted(id: string) {
+  const editTask = (id: string, newName: string) => {
+    const editedTaskList = tasks.map((task) => {
+      // if this task has the same ID as the edited task
+      if (id === task.id) {
+        //
+        return { ...task, name: newName };
+      }
+      return task;
+    });
+
+    setTasks(editedTaskList);
+  };
+
+  const addTask = (name: string) => {
+    const newTask = {
+      id: `todo-${nanoid()}`,
+      name,
+      completed: false,
+    };
+
+    setTasks([...tasks, newTask]);
+  };
+
+  const toggleTaskCompleted = (id: string) => {
     const updatedTasks = tasks.map((task) => {
       // if this task has the same ID as the edited task
 
@@ -38,12 +61,13 @@ const App = ({ tasksList }: { tasksList: Tasks }): JSX.Element => {
     });
 
     setTasks(updatedTasks);
-  }
+  };
 
   const taskList = tasks.map((task) => (
     <Todo
       completed={task.completed}
       deleteTask={deleteTask}
+      editTask={editTask}
       id={task.id}
       key={task.id}
       name={task.name}
@@ -53,16 +77,6 @@ const App = ({ tasksList }: { tasksList: Tasks }): JSX.Element => {
 
   const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
   const headingText = `${taskList.length} ${tasksNoun} remaining`;
-
-  const addTask = (name: string) => {
-    const newTask = {
-      id: `todo-${nanoid()}`,
-      name,
-      completed: false,
-    };
-
-    setTasks([...tasks, newTask]);
-  };
 
   return (
     <div className="todoapp stack-large">
