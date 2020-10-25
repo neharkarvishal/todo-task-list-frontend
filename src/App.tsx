@@ -18,9 +18,37 @@ type Tasks = Array<Task>;
 const App = ({ tasksList }: { tasksList: Tasks }): JSX.Element => {
   const [tasks, setTasks] = useState<Tasks>(tasksList);
 
+  function deleteTask(id: string) {
+    const remainingTasks = tasks.filter((task) => id !== task.id);
+
+    setTasks(remainingTasks);
+  }
+
+  function toggleTaskCompleted(id: string) {
+    const updatedTasks = tasks.map((task) => {
+      // if this task has the same ID as the edited task
+
+      if (id === task.id) {
+        // use object spread to make a new object
+        // whose `completed` prop has been inverted
+        return { ...task, completed: !task.completed };
+      }
+
+      return task;
+    });
+
+    setTasks(updatedTasks);
+  }
+
   const taskList = tasks.map((task) => (
-    <Todo completed={task.completed} id={task.id} key={task.id}
-name={task.name} />
+    <Todo
+      completed={task.completed}
+      deleteTask={deleteTask}
+      id={task.id}
+      key={task.id}
+      name={task.name}
+      toggleTaskCompleted={toggleTaskCompleted}
+    />
   ));
 
   const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';

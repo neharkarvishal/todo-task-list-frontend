@@ -4,13 +4,26 @@ type TodoProps = {
   name: string;
   id: string;
   completed: boolean;
+  toggleTaskCompleted: (id: string) => void;
+  deleteTask: (id: string) => void;
 };
 
-export default function Todo({ name, completed, id }: TodoProps): JSX.Element {
+export default function Todo({
+  name,
+  completed,
+  id,
+  toggleTaskCompleted,
+  deleteTask,
+}: TodoProps): JSX.Element {
   return (
     <li className="todo stack-small">
       <div className="c-cb">
-        <input defaultChecked={completed} id={id} type="checkbox" />
+        <input
+          defaultChecked={completed}
+          id={id}
+          onChange={() => toggleTaskCompleted(id)}
+          type="checkbox"
+        />
         <label className="todo-label" htmlFor={id}>
           {name}
         </label>
@@ -19,7 +32,11 @@ export default function Todo({ name, completed, id }: TodoProps): JSX.Element {
         <button className="btn" type="button">
           Edit <span className="visually-hidden">{name}</span>
         </button>
-        <button className="btn btn__danger" type="button">
+        <button
+          className="btn btn__danger"
+          onClick={() => deleteTask(id)}
+          type="button"
+        >
           Delete <span className="visually-hidden">{name}</span>
         </button>
       </div>
