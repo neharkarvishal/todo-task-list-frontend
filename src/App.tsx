@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
-import React from 'react';
+import React, { useState } from 'react';
+
+import { nanoid } from 'nanoid';
 
 import FilterButton from './components/FilterButton';
 import Form from './components/Form';
@@ -13,13 +15,25 @@ type Task = {
 
 type Tasks = Array<Task>;
 
-const App = ({ tasks }: { tasks: Tasks }): JSX.Element => {
-  const taskList: JSX.Element[] = tasks.map((task) => (
-    <Todo completed={task.completed} id={task.id} key={task.id} name={task.name} />
+const App = ({ tasksList }: { tasksList: Tasks }): JSX.Element => {
+  const [tasks, setTasks] = useState<Tasks>(tasksList);
+
+  const taskList = tasks.map((task) => (
+    <Todo completed={task.completed} id={task.id} key={task.id}
+name={task.name} />
   ));
 
+  const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
+  const headingText = `${taskList.length} ${tasksNoun} remaining`;
+
   const addTask = (name: string) => {
-    alert(name);
+    const newTask = {
+      id: `todo-${nanoid()}`,
+      name,
+      completed: false,
+    };
+
+    setTasks([...tasks, newTask]);
   };
 
   return (
@@ -30,7 +44,7 @@ const App = ({ tasks }: { tasks: Tasks }): JSX.Element => {
         <FilterButton />
         <FilterButton />
       </div>
-      <h2 id="list-heading">3 tasks remaining</h2>
+      <h2 id="list-heading">{headingText}</h2>
       {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
       <ul
         aria-labelledby="list-heading"

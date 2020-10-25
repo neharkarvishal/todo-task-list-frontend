@@ -20,7 +20,7 @@ const DATA: Mocked = [
 
 ReactDOM.render(
   <React.StrictMode>
-    <App tasks={DATA} />
+    <App tasksList={DATA} />
   </React.StrictMode>,
   document.getElementById('root'),
 );
