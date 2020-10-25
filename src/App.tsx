@@ -54,9 +54,9 @@ const App = ({ data }: { data: Props }): JSX.Element => {
         className="todo-list stack-large stack-exception"
         role="list"
       >
-        <Todo />
-        <Todo />
-        <Todo />
+        <Todo name="Eat" />
+        <Todo name="Sleep" />
+        <Todo name="Repeat" />
       </ul>
     </div>
   );
