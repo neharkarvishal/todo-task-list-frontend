@@ -21,6 +21,15 @@
     "jsx": "react"
   },
   "include": [
-    "src"
+    "src",
+    "**/*.ts",
+    "**/*.js",
+    "**/test/**/*.ts",
+    ".eslintrc.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "src/migrations"
   ]
 }

@@ -5704,6 +5704,19 @@
         }
       }
     },
+    "eslint-import-resolver-typescript": {
+      "version": "2.3.0",
+      "resolved": "https://registry.npmjs.org/eslint-import-resolver-typescript/-/eslint-import-resolver-typescript-2.3.0.tgz",
+      "integrity": "sha512-MHSXvmj5e0SGOOBhBbt7C+fWj1bJbtSYFAD85Xeg8nvUtuooTod2HQb8bfhE9f5QyyNxEfgzqOYFCvmdDIcCuw==",
+      "dev": true,
+      "requires": {
+        "debug": "^4.1.1",
+        "glob": "^7.1.6",
+        "is-glob": "^4.0.1",
+        "resolve": "^1.17.0",
+        "tsconfig-paths": "^3.9.0"
+      }
+    },
     "eslint-module-utils": {
       "version": "2.6.0",
       "resolved": "https://registry.npmjs.org/eslint-module-utils/-/eslint-module-utils-2.6.0.tgz",
@@ -5912,6 +5925,15 @@
       "version": "4.2.0",
       "resolved": "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.2.0.tgz",
       "integrity": "sha512-623WEiZJqxR7VdxFCKLI6d6LLpwJkGPYKODnkH3D7WpOG5KM8yWueBd8TLsNAetEJNF5iJmolaAKO3F8yzyVBQ=="
+    },
+    "eslint-plugin-security": {
+      "version": "1.4.0",
+      "resolved": "https://registry.npmjs.org/eslint-plugin-security/-/eslint-plugin-security-1.4.0.tgz",
+      "integrity": "sha512-xlS7P2PLMXeqfhyf3NpqbvbnW04kN8M9NtmhpR3XGyOvt/vNKS7XPXT5EDbwKW9vCjWH4PpfQvgD/+JgN0VJKA==",
+      "dev": true,
+      "requires": {
+        "safe-regex": "^1.1.0"
+      }
     },
     "eslint-plugin-testing-library": {
       "version": "3.9.2",
