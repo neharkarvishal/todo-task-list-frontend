@@ -9,7 +9,11 @@ type Props = Array<{
   id: string;
 }>;
 
-const App = ({ data }: { data: Props }): JSX.Element => {
+const App = ({ tasks }: { tasks: Props }): JSX.Element => {
+  const taskList = tasks.map((task) => (
+    <Todo completed={task.completed} id={task.id} key={task.id} name={task.name} />
+  ));
+
   return (
     <div className="todoapp stack-large">
       <h1>YA-TODO</h1>
@@ -54,9 +58,7 @@ const App = ({ data }: { data: Props }): JSX.Element => {
         className="todo-list stack-large stack-exception"
         role="list"
       >
-        <Todo completed={false} id="todo-0" name="Eat" />
-        <Todo completed={false} id="todo-1" name="Sleep" />
-        <Todo completed={false} id="todo-2" name="Repeat" />
+        {taskList}
       </ul>
     </div>
   );
