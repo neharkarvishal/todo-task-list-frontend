@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 import React from 'react';
 
+import Todo from './components/Todo';
+
 type Props = Array<{
   completed: boolean;
   name: string;
@@ -46,58 +48,15 @@ const App = ({ data }: { data: Props }): JSX.Element => {
         </button>
       </div>
       <h2 id="list-heading">3 tasks remaining</h2>
+      {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
       <ul
         aria-labelledby="list-heading"
         className="todo-list stack-large stack-exception"
+        role="list"
       >
-        <li className="todo stack-small">
-          <div className="c-cb">
-            <input defaultChecked id="todo-0" type="checkbox" />
-            <label className="todo-label" htmlFor="todo-0">
-              Eat
-            </label>
-          </div>
-          <div className="btn-group">
-            <button className="btn" type="button">
-              Edit <span className="visually-hidden">Eat</span>
-            </button>
-            <button className="btn btn__danger" type="button">
-              Delete <span className="visually-hidden">Eat</span>
-            </button>
-          </div>
-        </li>
-        <li className="todo stack-small">
-          <div className="c-cb">
-            <input id="todo-1" type="checkbox" />
-            <label className="todo-label" htmlFor="todo-1">
-              Sleep
-            </label>
-          </div>
-          <div className="btn-group">
-            <button className="btn" type="button">
-              Edit <span className="visually-hidden">Sleep</span>
-            </button>
-            <button className="btn btn__danger" type="button">
-              Delete <span className="visually-hidden">Sleep</span>
-            </button>
-          </div>
-        </li>
-        <li className="todo stack-small">
-          <div className="c-cb">
-            <input id="todo-2" type="checkbox" />
-            <label className="todo-label" htmlFor="todo-2">
-              Repeat
-            </label>
-          </div>
-          <div className="btn-group">
-            <button className="btn" type="button">
-              Edit <span className="visually-hidden">Repeat</span>
-            </button>
-            <button className="btn btn__danger" type="button">
-              Delete <span className="visually-hidden">Repeat</span>
-            </button>
-          </div>
-        </li>
+        <Todo />
+        <Todo />
+        <Todo />
       </ul>
     </div>
   );
