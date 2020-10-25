@@ -1,6 +1,9 @@
 # React starter boilerplate with TypeScript, ESLint and Prettier
 
-## Available Scripts
+###Many similar projects exist over internet, I didn't find those serving my needs, so I build this.
+
+
+### Available Scripts
 
 ### `npm start`
 
