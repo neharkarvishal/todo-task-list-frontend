@@ -6,7 +6,7 @@ import Todo from './components/Todo';
 type Props = Array<{
   completed: boolean;
   name: string;
-  uid: string;
+  id: string;
 }>;
 
 const App = ({ data }: { data: Props }): JSX.Element => {
@@ -54,9 +54,9 @@ const App = ({ data }: { data: Props }): JSX.Element => {
         className="todo-list stack-large stack-exception"
         role="list"
       >
-        <Todo name="Eat" />
-        <Todo name="Sleep" />
-        <Todo name="Repeat" />
+        <Todo completed={false} id="todo-0" name="Eat" />
+        <Todo completed={false} id="todo-1" name="Sleep" />
+        <Todo completed={false} id="todo-2" name="Repeat" />
       </ul>
     </div>
   );

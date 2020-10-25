@@ -1,11 +1,17 @@
 import React from 'react';
 
-export default function Todo({ name }: { name: string }): JSX.Element {
+type TodoProps = {
+  name: string;
+  id: string;
+  completed: boolean;
+};
+
+export default function Todo({ name, completed, id }: TodoProps): JSX.Element {
   return (
     <li className="todo stack-small">
       <div className="c-cb">
-        <input defaultChecked id="todo-0" type="checkbox" />
-        <label className="todo-label" htmlFor="todo-0">
+        <input defaultChecked={completed} id={id} type="checkbox" />
+        <label className="todo-label" htmlFor={id}>
           {name}
         </label>
       </div>

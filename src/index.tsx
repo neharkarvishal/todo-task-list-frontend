@@ -9,13 +9,13 @@ import reportWebVitals from './reportWebVitals';
 type Mocked = Array<{
   completed: boolean;
   name: string;
-  uid: string;
+  id: string;
 }>;
 
 const DATA: Mocked = [
-  { uid: 'todo-0', name: 'Eat', completed: true },
-  { uid: 'todo-1', name: 'Sleep', completed: false },
-  { uid: 'todo-2', name: 'Repeat', completed: false },
+  { id: 'todo-0', name: 'Eat', completed: true },
+  { id: 'todo-1', name: 'Sleep', completed: false },
+  { id: 'todo-2', name: 'Repeat', completed: false },
 ];
 
 ReactDOM.render(
