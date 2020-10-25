@@ -5,20 +5,26 @@ import FilterButton from './components/FilterButton';
 import Form from './components/Form';
 import Todo from './components/Todo';
 
-type Props = Array<{
+type Task = {
   completed: boolean;
   name: string;
   id: string;
-}>;
+};
 
-const App = ({ tasks }: { tasks: Props }): JSX.Element => {
-  const taskList = tasks.map((task) => (
+type Tasks = Array<Task>;
+
+const App = ({ tasks }: { tasks: Tasks }): JSX.Element => {
+  const taskList: JSX.Element[] = tasks.map((task) => (
     <Todo completed={task.completed} id={task.id} key={task.id} name={task.name} />
   ));
 
+  const addTask = (name: string) => {
+    alert(name);
+  };
+
   return (
     <div className="todoapp stack-large">
-      <Form />
+      <Form addTask={addTask} />
       <div className="filters btn-group stack-exception">
         <FilterButton />
         <FilterButton />

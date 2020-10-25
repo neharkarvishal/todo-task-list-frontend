@@ -1,5 +1,11 @@
 import React from 'react';
 
+type Props = Array<{
+  completed: boolean;
+  name: string;
+  id: string;
+}>;
+
 function FilterButton(props): JSX.Element {
   return (
     <button aria-pressed="true" className="btn toggle-btn" type="button">
